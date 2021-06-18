@@ -18,6 +18,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { TheevibathuComponent } from './theevibathu/theevibathu.component';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { PreviewComponent } from './preview/preview.component';
+import { SfoLoginComponent } from './sfo-login/sfo-login.component';
+import { DfoLoginComponent } from './dfo-login/dfo-login.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { PreviewComponent } from './preview/preview.component';
     StationLoginComponent,
     TheevibathuComponent,
     PreviewComponent,
+    SfoLoginComponent,
+    DfoLoginComponent,
     
   ],
   imports: [

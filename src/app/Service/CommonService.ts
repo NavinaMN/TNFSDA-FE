@@ -39,7 +39,12 @@ export class CommonService
     sendPostRequest(Url: string,data: any): Observable<any> {
         return this.http.post<any>(Url, data);
    }
-   
+   //Get Method
+   //Any Data Type
+   GetMethod(Url: string, Data:any): Observable<any> {
+    return this.http.get(Url,Data )
+  }
+
 //    Toast messages for alerts
    ToastSuccess(Message: string)
    {

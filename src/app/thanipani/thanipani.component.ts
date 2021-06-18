@@ -80,10 +80,12 @@ export class ThanipaniComponent implements OnInit {
 
   constructor(private FormBuilder: FormBuilder, public Service: CommonService, public route: Router, private ngxService: NgxUiLoaderService) { }
 
-  ngOnInit(): void {
+  ngOnInit()
+  {
     this.RescuedMembers = false;
     this.Adipaadugal = false;
     this.AllInOnePerson = true;
+    debugger
     this.GetTableResults();
     // this.Kottam = 0;
   }
@@ -216,22 +218,14 @@ this.AdipadugalOthers.push(
       'Type': 'Thanipani',
       'RescuedMembers': this.RescuedMembers,
       'EscapedorRescued': this.EscapedorRescued,
-      'rescued_animal': '',
       'Adipaadugal': this.Adipaadugal,
-      'FireStationName': this.FireStationName,
-      'ModelName': this.ModelName,
-      'RegisterNumber': this.RegisterNumber,
-      'SStartedTime': this.SStartedTime,
-      'SReachedTime': this.SReachedTime,
-      'SReturnTime': this.SReturnTime,
-      'ReachedStationTime': this.ReachedStationTime,
-      'TravelHours': this.TravelHours,
-      'WaterPumbingTime': this.WaterPumbingTime,
-      'Rank': this.Rank,
-      'Number': this.Number,
-      'Name': this.Name,
+      'ArriveACt': this.ArriveACt,
+      'AdipadugalFire': this.AdipadugalFire,
+      'AdipadugalOthers': this.AdipadugalOthers,
+      'FireTeam':this.FireTeam,
       'Others': this.Others,
-      'Sign': this.Sign
+      'Sign': this.Sign,
+      'AllInOnePerson': this.AllInOnePerson
     }
     this.Service.PreviewData = data;
     this.route.navigate(['/Preview']);
@@ -364,12 +358,16 @@ this.AdipadugalOthers.push(
   }
 
   GetTableResults() {
+    debugger
     let data = '';
-    this.Service.sendPostRequest(this.Service.URL + '/fire_call/count', data).subscribe(
+    this.Service.GetMethod(this.Service.URL + '/fire_call/count', data).subscribe(
       result => {
+        debugger
         this.ngxService.stop();
         // let alert = result.more_info
         // this.Service.ToastSuccess(alert);
+        let data=[];
+        data = result.data.id;
         
         console.log(result);
       }
