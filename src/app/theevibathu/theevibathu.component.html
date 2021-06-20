@@ -3640,12 +3640,20 @@ ul.tick li:before { content:"\2714\0020";  }
                                         <div class="col-sm-6 col-md-6">
                                             <label class="label">தீ விபத்தின் வகை </label>
                                         </div>
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="btn-group" role="" aria-label="Basic example" >
-                                                <button type="button" id="selectedBtn" class="btn btn-secondary">பெருந் தீ</button>
-                                                <button type="button" id="selectedBtn" class="btn btn-secondary">நடுத்தர தீ</button>
-                                                <button type="button" id="selectedBtn" class="btn btn-secondary">சிறு தீ</button>
-                                            </div>
+                                        <div class="col-sm-3 col-md-3">
+                                          
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons" [(ngModel)]="FireType">
+                                                <label class="btn btn-info active" style="margin-bottom:5px">
+                                                  <input type="radio" name="options" value="1" id="option1" autocomplete="off" checked> பெருந் தீ
+                                                </label>
+                                                <label class="btn btn-info" style="margin-bottom:5px">
+                                                  <input type="radio" name="options" value="2" id="option2" autocomplete="off"> நடுத்தர தீ
+                                                </label>
+                                                <label class="btn btn-info">
+                                                  <input type="radio" name="options" value="3" id="option3" autocomplete="off"> சிறு தீ
+                                                </label>
+                                              </div>
+                                           
                                         </div>
                                         <div class="clear"></div>
                                     </div>
@@ -3654,7 +3662,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">தீ விபத்தின் பரப்பு</label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="areaSquareOfFire" type="text"
+                                            <input type="text" [(ngModel)]="AreaOfFire"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3664,7 +3672,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">தீ விபத்திற்கு காரணம் எனக் கருதப்படுவது</label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="reasonForfireAccident" type="text"
+                                            <input [(ngModel)]="ReasonForFire" type="text"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3674,7 +3682,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">அழிபாட்டின் விவரம்</label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="fireAccidentdetailList" type="text"
+                                            <input [(ngModel)]="DestructionDetails" type="text"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3695,7 +3703,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">விபத்திற்குள்ளான உடமை</label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="fireaccidentThings" type="text"
+                                            <input [(ngModel)]="Accidental_possession" type="text"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3705,7 +3713,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">சூழ்ந்துள்ள ஏதேனும் இடர்</label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="environtment" type="text" placeholder="இங்கே தட்டச்சு செய்க"
+                                            <input [(ngModel)]="AnyRisk" type="text" placeholder="இங்கே தட்டச்சு செய்க"
                                                 style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3717,7 +3725,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">விபத்திற்குள்ளான இடத்தின் அழிவு </label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="accidentPlaceConditions" type="text"
+                                            <input [(ngModel)]="DestructionOfSite" type="text"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3727,7 +3735,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             <label class="label">உள்ளிருப்பவைகளுக்கு அழிவு</label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="firehappenedArea" type="text"
+                                            <input [(ngModel)]="DestructionForThoseWhoWithin" type="text"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3738,7 +3746,7 @@ ul.tick li:before { content:"\2714\0020";  }
                                             </label>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <input id="rescueThingValue" type="text"
+                                            <input [(ngModel)]="ValueOfProperty" type="text"
                                                 placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
                                         </div>
                                         <div class="clear"></div>
@@ -3782,19 +3790,30 @@ ul.tick li:before { content:"\2714\0020";  }
                         <section id="rescueValue">
                             <div class="subheading">
                                 <h3>தப்பித்துக்கொண்டவர்கள் / காப்பாற்றப்பட்டவர்கள்</h3>
+                             
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 margintop10">
                                 <div>
-                                    <input type="checkbox" id="checkbox5" style="width :100%"
-                                        aria-label="System Attribute" />
+                                    <!-- <input type="checkbox" [(ngModel)]="RescuedMembers" id="checkbox5" style="width :100%" aria-label="System Attribute" /> -->
+                                    <!-- <input type="checkbox" checked data-toggle="toggle" data-size="xs" data-onstyle="primary"> -->
+                                    <div class="mid">
+
+                                        <label class="rocker rocker-small">
+                                          <input type="checkbox" [(ngModel)]="RescuedMembers">
+                                          <span class="switch-left">Yes</span>
+                                          <span class="switch-right">No</span>
+                                        </label>
+                                      
+                                      </div>
                                 </div>
 
                                 <div class="clear"></div>
                             </div>
-                            <div class="contentinner">
+                           
+                            <div class="contentinner" *ngIf="RescuedMembers==true">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table class="viewtable">
+                                        <!-- <table class="viewtable">
                                             <tr>
                                                 <th> தீயணைப்பு பணியாளரின் உதவியின்றி தப்பித்து கொண்டவர்கள்</th>
                                                 <th>கருவிகளின் உதவியின்றி தீயணைப்புப் பணியாளரால் தீயின்றும் வெளியேற
@@ -3803,53 +3822,262 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     காப்பாற்றப்பட்டவர்கள்</th>
                                             </tr>
                                             <tr>
-                                                <td>ஆண் : <input id="male1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td>ஆண் : <input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td>ஆண் : <input id="male3" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <td>ஆண் : <input id="male1" type="text" placeholder="" style="width:100%;"></td>
+                                                <td>ஆண் : <input id="male2" type="text" placeholder="" style="width:100%;"></td>
+                                                <td>ஆண் : <input id="male3" type="text" placeholder="" style="width:100%;"></td>
                                             </tr>
+                                            
                                             <tr>
-                                                <td>பெண் : <input id="female1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td>பெண் : <input id="female2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td>பெண் : <input id="female3" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <td>பெண் : <input id="female1" type="text" placeholder="" style="width:100%;"></td>
+                                                <td>பெண் : <input id="female2" type="text" placeholder="" style="width:100%;"></td>
+                                                <td>பெண் : <input id="female3" type="text" placeholder="" style="width:100%;"></td>
 
                                             </tr>
+
+                                        </table> -->
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">தீயணைப்பு பணியாளரின் உதவியின்றி தப்பித்து கொண்டவர்கள்</h3>
+                                        </div>
+                                        <!-- <button class="buttonlarge fright" title="சேர் / திருத்து">
+                                            <i class="fa fa-plus-circle"></i>
+                                        </button> -->
+                                        <table class="viewtable">        
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>                                   
+                                        <tbody>
+                                            <tr *ngFor="let field of WithoutHelp; let i = index">
+                                                <td>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default"  type="button" (click)="WithoutHelpDelete(i)">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="WithoutHelpATTR.name" name="newAttributeName" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="WithoutHelpATTR.age" name="newAttributeAge" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithoutHelpATTR.sex" name="newAttributeSex" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="WithoutHelpATTR.mobile" name="newAttributeMbl" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="WithoutHelpATTR.address" name="newAttributeAdr" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default" type="button" (click)="WithoutHelpAdd()">Add</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">கருவிகளின் உதவியின்றி தீயணைப்புப் பணியாளரால் தீயின்றும் வெளியேற
+                                                உதவி செய்யப்பட்டவர்கள்</h3>
+                                        </div>
+                                        <table class="viewtable">   
+                                            <thead>                                      
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>  
+                                            <tbody>
+                                                <tr *ngFor="let field of WithoutTools; let i = index">
+                                                    <td>
+                                                        <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default"  type="button" (click)="WithoutToolsDelete(i)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="WithoutToolsAttr.name" name="newAttributeName" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="WithoutToolsAttr.age" name="newAttributeAge" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithoutToolsAttr.sex" name="newAttributeSex" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="WithoutToolsAttr.mobile" name="newAttributeMbl" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="WithoutToolsAttr.address" name="newAttributeAdr" />
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default" type="button" (click)="WithoutToolsAdd()">Add</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">கருவிகளை பயன்படுத்தி தீயணைப்புப் பணியாளரால்
+                                                காப்பாற்றப்பட்டவர்கள்</h3>
+                                        </div>
+                                        <table class="viewtable">  
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>                                         
+                                           <tbody>
+                                            <tr *ngFor="let field of WithTools; let i = index">
+                                                <td>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default"  type="button" (click)="WithToolsDelete(i)">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="WithToolsAttr.name" name="newAttributeName" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="WithToolsAttr.age" name="newAttributeAge" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithToolsAttr.sex" name="newAttributeSex" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="WithToolsAttr.mobile" name="newAttributeMbl" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="WithToolsAttr.address" name="newAttributeAdr" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default" type="button" (click)="WithToolsAdd()">Add</button>
+                                                </td>
+                                            </tr>
+                                           </tbody>
 
                                         </table>
                                     </div>
                                 </div>
 
                             </div>
+                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button> -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form>
+                                        <div class="form-group">
+                                          <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                          <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="message-text" class="col-form-label">Message:</label>
+                                          <textarea class="form-control" id="message-text"></textarea>
+                                        </div>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-primary">Send message</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             <div class="clear"></div>
-                            <div>
+                            <!-- <div>
                                 <br>
                                 <label class="tamilClass" style="font-color: red;">Fwpg;g[: bgha; miHg;g[fisg;
                                     gw;wpa mwpf;ikfis, mwpf;ifg; gotj;jpy; 2 k; ghfj;jpy; FWf;fhf rptg;g[ ikapy;
                                     “bgha;ahdJ” vd;W ep\gpf;f Btz;Lk;.</label>
-                            </div>
+                            </div> -->
 
                         </section>
                         <section id="accidentInDetails">
                             <div class="subheading">
-                                <h3>விபத்துக்குள்ளானவர்கள் விவரம்</h3>
+                                <h3>அடிபாடுகள்</h3>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 margintop10">
                                 <div>
-                                    <input type="checkbox" id="checkbox6" style="width :100%"
-                                        aria-label="System Attribute" />
+                                    <!-- <input type="checkbox" [(ngModel)]="Adipaadugal" id="checkbox6" style="width :100%" aria-label="System Attribute" /> -->
+                                    <div class="mid">
+
+                                        <label class="rocker rocker-small">
+                                          <input type="checkbox" [(ngModel)]="Adipaadugal">
+                                          <span class="switch-left">Yes</span>
+                                          <span class="switch-right">No</span>
+                                        </label>
+                                      
+                                      </div>
                                 </div>
 
                                 <div class="clear"></div>
                             </div>
-                            <div class="contentinner">
+                            <div class="contentinner" *ngIf="Adipaadugal==true">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table class="viewtable">
+                                        <!-- <table class="viewtable">
                                             <tr>
                                                 <th></th>
                                                 <th>இறந்தவர்கள்</th>
@@ -3858,43 +4086,267 @@ ul.tick li:before { content:"\2714\0020";  }
                                             </tr>
                                             <tr>
                                                 <td>தீயணைப்பு பணியாளர்</td>
-                                                <td>ஆண் : <input id="Vmale1" type="text" placeholder=""
-                                                        style="width:100%;">
-                                                    பெண் : <input id="VFemale1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <td>ஆண் : <input id="Vmale1" type="text" placeholder="" style="width:100%;">
+                                                    பெண் : <input id="VFemale1" type="text" placeholder="" style="width:100%;"></td>
                                                 <td>தீயணைப்பு பணியாளர்</td>
-                                                <td>ஆண் : <input id="Vmale2" type="text" placeholder=""
-                                                        style="width:100%;">
-                                                    பெண் : <input id="VFemale2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <td>ஆண் : <input id="Vmale2" type="text" placeholder="" style="width:100%;">
+                                                    பெண் : <input id="VFemale2" type="text" placeholder="" style="width:100%;"></td>
                                             </tr>
                                             <tr>
                                                 <td>மற்றவர்கள்</td>
-                                                <td>ஆண் : <input id="Vmale3" type="text" placeholder=""
-                                                        style="width:100%;">
-                                                    பெண் : <input id="VFemale3" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <td>ஆண் : <input id="Vmale3" type="text" placeholder="" style="width:100%;">
+                                                    பெண் : <input id="VFemale3" type="text" placeholder="" style="width:100%;"></td>
                                                 <td>மற்றவர்கள்</td>
-                                                <td>ஆண் : <input id="Vmale4" type="text" placeholder=""
-                                                        style="width:100%;">
-                                                    பெண் : <input id="VFemale4" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <td>ஆண் : <input id="Vmale4" type="text" placeholder="" style="width:100%;">
+                                                    பெண் : <input id="VFemale4" type="text" placeholder="" style="width:100%;"></td>
                                             </tr>
+                                        </table> -->
+
+                                        <!-- fire man -->
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">இறந்தவர்கள் - தீயணைப்பு பணியாளர்</h3>
+                                        </div>
+                                        <table class="viewtable">        
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>                                   
+                                        <tbody>
+                                            <tr *ngFor="let field of DeadFireMan; let i = index">
+                                                <td>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default"  type="button" (click)="DeadFireManDelete(i)">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="DeadFireManAttr.name" name="newAttributeName" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="DeadFireManAttr.age" name="newAttributeAge" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="DeadFireManAttr.sex" name="newAttributeSex" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="DeadFireManAttr.mobile" name="newAttributeMbl" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="DeadFireManAttr.address" name="newAttributeAdr" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default" type="button" (click)="DeadFireManAdd()">Add</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">காயமடைந்தவர்கள் - தீயணைப்பு பணியாளர்</h3>
+                                        </div>
+                                        <table class="viewtable">        
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>                                   
+                                        <tbody>
+                                            <tr *ngFor="let field of InjuredFireMan; let i = index">
+                                                <td>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default"  type="button" (click)="InjuredFireManDelete(i)">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="InjuredFireManAttr.name" name="newAttributeName" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="InjuredFireManAttr.age" name="newAttributeAge" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="InjuredFireManAttr.sex" name="newAttributeSex" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="InjuredFireManAttr.mobile" name="newAttributeMbl" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="InjuredFireManAttr.address" name="newAttributeAdr" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default" type="button" (click)="InjuredFireManAdd()">Add</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+
+                                        <!-- Others -->
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">இறந்தவர்கள் - மற்றவர்கள்</h3>
+                                        </div>
+                                        <table class="viewtable">        
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>                                   
+                                        <tbody>
+                                            <tr *ngFor="let field of DeadOthers; let i = index">
+                                                <td>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default"  type="button" (click)="DeadOthersDelete(i)">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="DeadOthersAttr.name" name="newAttributeName" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="DeadOthersAttr.age" name="newAttributeAge" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="DeadOthersAttr.sex" name="newAttributeSex" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="DeadOthersAttr.mobile" name="newAttributeMbl" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="DeadOthersAttr.address" name="newAttributeAdr" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default" type="button" (click)="DeadOthersAdd()">Add</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        <div class="subheading">
+                                            <h3 style="color:#006432">காயமடைந்தவர்கள் - மற்றவர்கள்</h3>
+                                        </div>
+                                        <table class="viewtable">        
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Sex</th>
+                                                <th>Mobile</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>                                   
+                                        <tbody>
+                                            <tr *ngFor="let field of InjuredOthers; let i = index">
+                                                <td>
+                                                    <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
+                                                </td>
+                                                <td>
+                                                    <input [(ngModel)]="field.address" class="form-control" type="text" name="{{field.address}}" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default"  type="button" (click)="InjuredOthersDelete(i)">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="InjuredOthersAttr.name" name="newAttributeName" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="InjuredOthersAttr.age" name="newAttributeAge" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="InjuredOthersAttr.sex" name="newAttributeSex" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="InjuredOthersAttr.mobile" name="newAttributeMbl" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="InjuredOthersAttr.address" name="newAttributeAdr" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default" type="button" (click)="InjuredOthersAdd()">Add</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                             <div class="clear"></div>
-                            <!-- <div>
+                            <div>
                                 <br>
-                                <label class="tamilClass" style="font-color: red;">jPaizg;g[g; gzpapdhpd; tp&aj;jpy;
-                                    jPaizg;g[g; gzp vz;fisf; Fwpg;gpl;lhy; BghJkhdJ.</label>
-                            </div> -->
+                                <!-- <label class="tamilClass" style="font-color: red;">jPaizg;g[g; gzpapdhpd; tp&aj;jpy;
+                                    jPaizg;g[g; gzp vz;fisf; Fwpg;gpl;lhy; BghJkhdJ.</label> -->
+                            </div>
 
                         </section>
                         <section id="machineDetails">
                             <div class="subheading">
-                                <h3>விபத்து நடந்த இடத்தில் வந்து செயலாற்றிய செயற்கருவிகளின் விவரங்கள்</h3>
+                                <h3>விபத்து நடந்த இடத்தில் வந்து செயலாற்றுதல்</h3>
                             </div>
 
                             <div class="clear"></div>
@@ -3902,12 +4354,8 @@ ul.tick li:before { content:"\2714\0020";  }
                             <div class="contentinner">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="fright">
-                                            <button class="buttonlarge" title="சேர் / திருத்து">
-                                                <i class="fa fa-plus-circle"></i>
-                                            </button>
-                                        </div>
                                         <table class="viewtable">
+                                            <thead>
                                             <tr>
                                                 <th>தீயணைப்புப் நிலையத்தின் பெயர்</th>
                                                 <th>செயற்கருவியின் மாதிரி</th>
@@ -3918,27 +4366,75 @@ ul.tick li:before { content:"\2714\0020";  }
                                                 <th>சொந்த நிலையத்திற்கு வந்து சேர்ந்த நேரம்</th>
                                                 <th>பயணம் செய்த நேரம்</th>
                                                 <th>நீரடித்த மணி நேரம்</th>
+                                                <th>Action</th>
                                             </tr>
-                                            <tr>
-                                                <td><input id="male1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                            </tr>
+                                        </thead>
+                                            <tbody>
+                                                <tr *ngFor="let field of ArriveACt; let i = index">
+                                                    <td>
+                                                        <input [(ngModel)]="field.StatnName" class="form-control" type="text" name="{{field.name}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.ModelName" class="form-control" type="text" name="{{field.age}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.RegNo" class="form-control" type="text" name="{{field.sex}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.SStartedTime" class="form-control" type="text" name="{{field.mobile}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.SReachedTime" class="form-control" type="text" name="{{field.address}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.SReturnTime" class="form-control" type="text" name="{{field.address}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.ReachedStationTime" class="form-control" type="text" name="{{field.address}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.TravelHours" class="form-control" type="text" name="{{field.address}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.WaterPumbingTime" class="form-control" type="text" name="{{field.address}}" />
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default"  type="button" (click)="ArriveActDelete(i)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="ArriveActAttr.StatnName" name="newAttributeName" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="ArriveActAttr.ModelName" name="newAttributeAge" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="ArriveActAttr.RegNo" name="newAttributeSex" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="ArriveActAttr.SStartedTime" name="newAttributeMbl" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="ArriveActAttr.SReachedTime" name="newAttributeAdr" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="ArriveActAttr.SReturnTime" name="newAttributeAdr" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="ArriveActAttr.ReachedStationTime" name="newAttributeAdr" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="ArriveActAttr.TravelHours" name="newAttributeAdr" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAdr" [(ngModel)]="ArriveActAttr.WaterPumbingTime" name="newAttributeAdr" />
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default" type="button" (click)="ArriveActAdd()">Add</button>
+                                                    </td>
+                                                </tr>
+                                               </tbody>
 
                                         </table>
                                     </div>
@@ -3960,28 +4456,48 @@ ul.tick li:before { content:"\2714\0020";  }
                             <div class="contentinner">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="fright">
-                                            <button class="buttonlarge" title="சேர் / திருத்து">
-                                                <i class="fa fa-plus-circle"></i>
-                                            </button>
-                                        </div>
+                                      
                                         <table class="viewtable">
+                                            <thead>
                                             <tr>
                                                 <th>தரம்</th>
                                                 <th>எண்</th>
                                                 <th>பெயர்</th>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td><input id="male1" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
-                                                <td><input id="male2" type="text" placeholder=""
-                                                        style="width:100%;"></td>
+                                                <th>Action</th>
 
                                             </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                <tr *ngFor="let field of FireTeam; let i = index">
+                                                    <td>
+                                                        <input [(ngModel)]="field.rank" class="form-control" type="text" name="{{field.rank}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.number" class="form-control" type="text" name="{{field.number}}" />
+                                                    </td>
+                                                    <td>
+                                                        <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default"  type="button" (click)="FireTeamDelete(i)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="FireTeamAttr.rank" name="newAttributeName" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="FireTeamAttr.number" name="newAttributeAge" />
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="FireTeamAttr.name" name="newAttributeSex" />
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default" type="button" (click)="FireTeamAdd()">Add</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
 
                                         </table>
                                     </div>
@@ -4016,29 +4532,18 @@ ul.tick li:before { content:"\2714\0020";  }
 
 
                         </section>
-                        <div class="processfullname"
-                            style="background: none;color: #266085;margin-left: 25px;max-width: 350px;">(ஒப்பம்)
+                        <div class="processfullname" style="background: none;color: #266085;margin-left: 25px;max-width: 350px;">(ஒப்பம்)
                         </div>
-                        <!-- <div class="contentinner">
-                            <div class="row">
-                                <div class="col-sm-12"> -->
-                                    <div class="processfullname">
-                                        <input id="otherdetail" type="text" placeholder="இங்கே தட்டச்சு செய்க"
-                                            style="width:100%;">
-                                    </div>
-                                    <div class="clear"></div>
-                                <!-- </div>
-                            </div>
-
-                        </div> -->
-                        
+                        <div class="processfullname" style="background: none;color: #266085;margin-left: 40px;max-width: 350px;">
+                            <input [(ngModel)]="Sign" type="text" placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
+                        </div>
+                        <div class="clear"></div>
                         <div class="clear"></div>
                         <div class="col-sm-6 col-md-6">
 
                         </div>
                         <div class="clear"></div>
-                        <div class="processfullname"
-                            style="background: none;color: #266085;margin-left: 50px;max-width: 350px;">
+                        <div class="processfullname" style="background: none;color: #266085;margin-left: 50px;max-width: 350px;">
                             தீயணைப்பிற்கு பொறுப்பு வகித்த அலுவலர்</div>
                     </div>
                 </div>

@@ -150,7 +150,7 @@
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card2 bg-primary text-white mb-4">
-                                    <div class="card-body" style="background-color: #9385a1">தீயணைப்பு: 000</div>
+                                    <div class="card-body" style="background-color: #9385a1">தீயணைப்பு: {{FireCount}}</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between"  style="background-color: #9385a1">
                                       <!--  <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
@@ -160,7 +160,7 @@
                            
                             <div class="col-xl-3 col-md-6">
                                 <div class="card2 bg-success text-white mb-4">
-                                    <div class="card-body" style="background-color: #65c2c2">மீட்புப்பணி: 000</div>
+                                    <div class="card-body" style="background-color: #65c2c2">மீட்புப்பணி: {{RescueCount}}</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between" style="background-color: #65c2c2">
                                       <!--   <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
@@ -199,8 +199,10 @@
                                                 <th>வ.எண்</th>
                                                 <th>வகை</th>
                                                 <th>காரணம்</th>
-                                                <th>நி.அ</th>
-                                                <th>ம.அ</th>
+                                                <th>Modify</th>
+                                                <th>Status</th>
+                                                <!-- <th>நி.அ</th>
+                                                <th>ம.அ</th> -->
                                                
                                             </tr>
                                         </thead>
@@ -209,87 +211,24 @@
                                                 <th>வ.எண்</th>
                                                 <th>வகை</th>
                                                 <th>காரணம்</th>
-                                                <th>நி.அ</th>
-                                                <th>ம.அ</th>
+                                                <th>Modify</th>
+                                                <th>Status</th>
+                                                <!-- <th>நி.அ</th>
+                                                <th>ம.அ</th> -->
                                                 
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>01/2021</td>
-                                                <td>தீவிபத்து</td>
-                                                <td>சமையல் எரிவாய்வு கசிவு</td>
-                                                <td><a class="btn btn-success btnClass" data-toggle="modal" data-target="#myModal">அனுமதி</a></td>
+                                            <tr *ngFor="let item of TableData;let i=index;">
+                                                <td>{{item.arikkai_number}}</td>
+                                                <td>{{item.type}}</td>
+                                                <td>{{item.rescue_work}}</td>
+                                                <td><a class="btn btn-success btnClass" (click)="EditRejectedForm(item)">Edit</a></td>
+                                                <td><a class="btn btn-success btnClass" data-toggle="modal" data-target="#myModal">view</a></td>
                                                 <!-- <td> <button type="button" class="btn btn-primary d-flex mx-auto btn-lg" data-toggle="we3modal" data-target="#myModal"> Track your order </button> The Modal</td> -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title mx-auto" style="color:white">Status<br>தீவிபத்து - சமையல் எரிவாய்வு கசிவு</h4> <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div> <!-- Modal body -->
-            <div class="modal-body">
-                <div class="progress-track">
-                    <ul id="progressbar">
-                        <li class="step0 active " id="step1"><i class="fa fa-check"></i>SFO</li>
-                        <li class="step0 text-center" id="step2">DFO</li>
-                        <!-- <li class="step0 active text-right" id="step3"><span id="three">Out for Delivery</span></li> -->
-                        <li class="step0 text-right" id="step4">Approved</li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <div class="col-9">
-                        <div class="details d-table">
-                            <!-- <div class="d-table-row">
-                                <div class="d-table-cell"> Shipped with </div>
-                                <div class="d-table-cell"> UPS Expedited </div>
-                            </div> -->
-                            <div class="d-table-row" style="color: white;">
-                                <div class="d-table-cell"> Incident Date </div>
-                                <div class="d-table-cell"> 02/12/2017 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="d-table-row"> <a href=#><i class="fa fa-phone" aria-hidden="true"></i></a> </div>
-                        <div class="d-table-row"> <a href=#><i class="fa fa-envelope" aria-hidden="true"></i></a> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
                                                 <!-- <td><a class="btn btn-danger btnClass" href="index.html">நிலுவை</a></td> -->
                                                 
                                             </tr>
-                                            <tr>
-                                                <td>01/2021</td>
-                                                <td>தனிப்பணி</td>
-                                                <td>மாடு மீட்பு</td>
-                                                <td><a class="btn btn-success btnClass" href="index.html">அனுமதி</a></td>
-                                                <td><a class="btn btn-danger btnClass" href="index.html">நிலுவை</a></td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>01/2021</td>
-                                                <td>தனிப்பணி</td>
-                                                <td>பாம்பகற்றல்</td>
-                                                <td><a class="btn btn-danger btnClass" href="index.html">நிலுவை</a></td>
-                                                <td><a class="btn btn-danger btnClass" href="index.html">நிலுவை</a></td>
-                                                
-                                            </tr>
-                                           
-                                            <tr>
-                                                 <td>01/2021</td>
-                                                <td>தீவிபத்து</td>
-                                                <td>மின்சார கசிவு</td>
-                                                <td><a class="btn btn-success btnClass" href="index.html">அனுமதி</a></td>
-                                                <td><a class="btn btn-success btnClass" href="index.html">அனுமதி</a></td>
-                                                
-                                            </tr>
-                                           
-                                          
-                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -297,6 +236,46 @@
                         </div>
                     </div>
                 </main>
+                <!-- Status div -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title mx-auto" style="color:white">Status<br>தீவிபத்து - சமையல் எரிவாய்வு கசிவு</h4> <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div> <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="progress-track">
+                                    <ul id="progressbar">
+                                        <li class="step0 active " id="step1"><i class="fa fa-check"></i>SFO</li>
+                                        <li class="step0 text-center" id="step2">DFO</li>
+                                        <!-- <li class="step0 active text-right" id="step3"><span id="three">Out for Delivery</span></li> -->
+                                        <li class="step0 text-right" id="step4">Approved</li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="details d-table">
+                                            <!-- <div class="d-table-row">
+                                                <div class="d-table-cell"> Shipped with </div>
+                                                <div class="d-table-cell"> UPS Expedited </div>
+                                            </div> -->
+                                            <div class="d-table-row" style="color: white;">
+                                                <div class="d-table-cell"> Incident Date </div>
+                                                <div class="d-table-cell"> 02/12/2017 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="d-table-row"> <a href=#><i class="fa fa-phone" aria-hidden="true"></i></a> </div>
+                                        <div class="d-table-row"> <a href=#><i class="fa fa-envelope" aria-hidden="true"></i></a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Status div Ends-->
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">

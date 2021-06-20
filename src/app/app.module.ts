@@ -20,6 +20,7 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { PreviewComponent } from './preview/preview.component';
 import { SfoLoginComponent } from './sfo-login/sfo-login.component';
 import { DfoLoginComponent } from './dfo-login/dfo-login.component';
+import { AddMembersFormComponent } from './add-members-form/add-members-form.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { DfoLoginComponent } from './dfo-login/dfo-login.component';
     PreviewComponent,
     SfoLoginComponent,
     DfoLoginComponent,
+    AddMembersFormComponent,
     
   ],
   imports: [

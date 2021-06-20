@@ -3681,6 +3681,57 @@ ul.tick li:before { content:"\2714\0020";  }
                                 </div>
                             </div>
                         </section>
+
+                        <section id="rescuedanimal">
+                            <div class="subheading">
+                                <h3>காப்பாற்றிய விலங்கு</h3>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 margintop10">
+                                <div>
+                                    <div class="mid">
+
+                                        <label class="rocker rocker-small">
+                                          <input type="checkbox" [(ngModel)]="RescuedAnimal">
+                                          <span class="switch-left">Yes</span>
+                                          <span class="switch-right">No</span>
+                                        </label>
+                                      
+                                      </div>
+                                </div>
+
+                                <div class="clear"></div>
+                            </div>
+                            <div class="contentinner" *ngIf="RescuedAnimal==true">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-6 margintop10">
+                                            <div class="col-sm-6 col-md-6">
+                                                <label class="label">விலங்கின் வகை/பெயர்: </label>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <input  [(ngModel)]="RescuedAnimalName" type="text" placeholder="" style="width:100%;">
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="col-sm-6 margintop10">
+                                            <div class="col-sm-6 col-md-6">
+                                                <label class="label">எத்தனை விலங்கு: </label>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <input type="text" [(ngModel)]="NoOfAnimal" placeholder="இங்கே தட்டச்சு செய்க" style="width:100%;">
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                     </div>
+                                </div>
+                            </div>
+                            
+                            <div class="clear"></div>
+                           
+
+                        </section>
+                      
                         <section id="rescueValue">
                             <div class="subheading">
                                 <h3>தப்பித்துக்கொண்டவர்கள் / காப்பாற்றப்பட்டவர்கள்</h3>
@@ -3755,7 +3806,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                 </td>
                                                 <td>
-                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                    <select class="input100" name="ID" placeholder="Gender" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -3775,7 +3830,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="WithoutHelpATTR.age" name="newAttributeAge" />
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithoutHelpATTR.sex" name="newAttributeSex" />
+                                                    <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithoutHelpATTR.sex" name="newAttributeSex" /> -->
+                                                    <select class="input100"  placeholder="Gender" id="newAttributeGender" [(ngModel)]="WithoutHelpATTR.sex" name="newAttributegender">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="WithoutHelpATTR.mobile" name="newAttributeMbl" />
@@ -3813,7 +3872,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                         <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                     </td>
                                                     <td>
-                                                        <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                        <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                        <select class="input100" name="ID" placeholder="Gender" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                        </select>
                                                     </td>
                                                     <td>
                                                         <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -3833,7 +3896,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                         <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="WithoutToolsAttr.age" name="newAttributeAge" />
                                                     </td>
                                                     <td>
-                                                        <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithoutToolsAttr.sex" name="newAttributeSex" />
+                                                        <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithoutToolsAttr.sex" name="newAttributeSex" /> -->
+                                                        <select class="input100"  placeholder="Gender" id="newAttributeGender" [(ngModel)]="WithoutToolsAttr.sex" name="newAttributegender">
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                        </select>
                                                     </td>
                                                     <td>
                                                         <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="WithoutToolsAttr.mobile" name="newAttributeMbl" />
@@ -3871,7 +3938,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                 </td>
                                                 <td>
-                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                    <select class="input100" name="ID" placeholder="Gender" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -3891,7 +3962,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="WithToolsAttr.age" name="newAttributeAge" />
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithToolsAttr.sex" name="newAttributeSex" />
+                                                    <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="WithToolsAttr.sex" name="newAttributeSex" /> -->
+                                                    <select class="input100"  placeholder="Gender" id="newAttributeGender" [(ngModel)]="WithToolsAttr.sex" name="newAttributegender">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="WithToolsAttr.mobile" name="newAttributeMbl" />
@@ -3971,31 +4046,7 @@ ul.tick li:before { content:"\2714\0020";  }
                             <div class="contentinner" *ngIf="Adipaadugal==true">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <!-- <table class="viewtable">
-                                            <tr>
-                                                <th></th>
-                                                <th>இறந்தவர்கள்</th>
-                                                <th></th>
-                                                <th>காயமடைந்தவர்கள்</th>
-                                            </tr>
-                                            <tr>
-                                                <td>தீயணைப்பு பணியாளர்</td>
-                                                <td>ஆண் : <input id="Vmale1" type="text" placeholder="" style="width:100%;">
-                                                    பெண் : <input id="VFemale1" type="text" placeholder="" style="width:100%;"></td>
-                                                <td>தீயணைப்பு பணியாளர்</td>
-                                                <td>ஆண் : <input id="Vmale2" type="text" placeholder="" style="width:100%;">
-                                                    பெண் : <input id="VFemale2" type="text" placeholder="" style="width:100%;"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>மற்றவர்கள்</td>
-                                                <td>ஆண் : <input id="Vmale3" type="text" placeholder="" style="width:100%;">
-                                                    பெண் : <input id="VFemale3" type="text" placeholder="" style="width:100%;"></td>
-                                                <td>மற்றவர்கள்</td>
-                                                <td>ஆண் : <input id="Vmale4" type="text" placeholder="" style="width:100%;">
-                                                    பெண் : <input id="VFemale4" type="text" placeholder="" style="width:100%;"></td>
-                                            </tr>
-                                        </table> -->
-
+                                       
                                         <!-- fire man -->
                                         <div class="subheading">
                                             <h3 style="color:#006432">இறந்தவர்கள் - தீயணைப்பு பணியாளர்</h3>
@@ -4020,7 +4071,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                 </td>
                                                 <td>
-                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                    <select class="input100" name="ID" placeholder="Gender" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -4040,7 +4095,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="DeadFireManAttr.age" name="newAttributeAge" />
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="DeadFireManAttr.sex" name="newAttributeSex" />
+                                                    <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="DeadFireManAttr.sex" name="newAttributeSex" /> -->
+                                                    <select class="input100"  placeholder="Gender" id="newAttributeGender" [(ngModel)]="DeadFireManAttr.sex" name="newAttributegender">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="DeadFireManAttr.mobile" name="newAttributeMbl" />
@@ -4077,7 +4136,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                 </td>
                                                 <td>
-                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                    <select class="input100" name="ID" placeholder="Gender" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -4097,7 +4160,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="InjuredFireManAttr.age" name="newAttributeAge" />
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="InjuredFireManAttr.sex" name="newAttributeSex" />
+                                                    <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="InjuredFireManAttr.sex" name="newAttributeSex" /> -->
+                                                    <select class="input100" placeholder="Gender" id="newAttributeGender" [(ngModel)]="InjuredFireManAttr.sex" name="newAttributegender">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="InjuredFireManAttr.mobile" name="newAttributeMbl" />
@@ -4136,7 +4203,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                 </td>
                                                 <td>
-                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                    <select class="input100" name="ID" placeholder="Gender" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -4156,7 +4227,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="DeadOthersAttr.age" name="newAttributeAge" />
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="DeadOthersAttr.sex" name="newAttributeSex" />
+                                                    <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="DeadOthersAttr.sex" name="newAttributeSex" /> -->
+                                                    <select class="input100" placeholder="Gender" id="newAttributeGender" [(ngModel)]="DeadOthersAttr.sex" name="newAttributegender">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="DeadOthersAttr.mobile" name="newAttributeMbl" />
@@ -4193,7 +4268,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input [(ngModel)]="field.age" class="form-control" type="text" name="{{field.age}}" />
                                                 </td>
                                                 <td>
-                                                    <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" />
+                                                    <!-- <input [(ngModel)]="field.sex" class="form-control" type="text" name="{{field.sex}}" /> -->
+                                                     <select class="input100" name="ID" placeholder="Gender" id="newAttributeid" [(ngModel)]="field.sex" name="{{field.sex}}">
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                        </select>
                                                 </td>
                                                 <td>
                                                     <input [(ngModel)]="field.mobile" class="form-control" type="text" name="{{field.mobile}}" />
@@ -4213,7 +4292,11 @@ ul.tick li:before { content:"\2714\0020";  }
                                                     <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="InjuredOthersAttr.age" name="newAttributeAge" />
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="InjuredOthersAttr.sex" name="newAttributeSex" />
+                                                    <!-- <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="InjuredOthersAttr.sex" name="newAttributeSex" /> -->
+                                                    <select class="input100" placeholder="Gender" id="newAttributeGender" [(ngModel)]="InjuredOthersAttr.sex" name="newAttributegender">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <input class="form-control" type="text" id="newAttributeMbl" [(ngModel)]="InjuredOthersAttr.mobile" name="newAttributeMbl" />
@@ -4354,21 +4437,23 @@ ul.tick li:before { content:"\2714\0020";  }
                                         <table class="viewtable">
                                             <thead>
                                             <tr>
-                                                <th>தரம்</th>
                                                 <th>எண்</th>
+                                                <th>தரம்</th>
                                                 <th>பெயர்</th>
                                                 <th>Action</th>
-
                                             </tr>
                                             </thead>
                                             
                                             <tbody>
                                                 <tr *ngFor="let field of FireTeam; let i = index">
                                                     <td>
-                                                        <input [(ngModel)]="field.rank" class="form-control" type="text" name="{{field.rank}}" />
+                                                        <select class="input100" name="ID" placeholder="ID Number">
+                                                            <option *ngFor="let item of TableDataFireMan">{{item.id_number}}</option>
+                                                        </select>
                                                     </td>
+
                                                     <td>
-                                                        <input [(ngModel)]="field.number" class="form-control" type="text" name="{{field.number}}" />
+                                                        <input [(ngModel)]="field.rank" class="form-control" type="text" name="{{field.rank}}" />
                                                     </td>
                                                     <td>
                                                         <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
@@ -4379,10 +4464,12 @@ ul.tick li:before { content:"\2714\0020";  }
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="FireTeamAttr.rank" name="newAttributeName" />
+                                                        <select class="input100" (change)="GetRankAndName($event)" name="ID" placeholder="ID Number" id="newAttributeid" [(ngModel)]="FireTeamAttr.id_number" name="newAttributeid">
+                                                            <option *ngFor="let item of TableDataFireMan" [value]="item.id_number">{{item.id_number}}</option>
+                                                        </select>
                                                     </td>
                                                     <td>
-                                                        <input class="form-control" type="text" id="newAttributeAge" [(ngModel)]="FireTeamAttr.number" name="newAttributeAge" />
+                                                        <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="FireTeamAttr.rank" name="newAttributeName" />
                                                     </td>
                                                     <td>
                                                         <input class="form-control" type="text" id="newAttributeSex" [(ngModel)]="FireTeamAttr.name" name="newAttributeSex" />

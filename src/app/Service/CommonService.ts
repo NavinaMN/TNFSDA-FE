@@ -23,6 +23,8 @@ export class CommonService
 
     URL: any;
     PreviewData : any = [];
+    ThanipaniRejectedEditData: any = [];
+    
     constructor(private Router:Router, private http: HttpClient)
     {
         this.URL = 'https://tnfsd-be.cleverapps.io';

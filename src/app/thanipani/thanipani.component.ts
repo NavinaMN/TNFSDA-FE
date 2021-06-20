@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { CommonService } from '../Service/CommonService';
@@ -74,20 +74,74 @@ export class ThanipaniComponent implements OnInit {
   Mobile: any;
   Age: any;
   EscapedorRescued: any = [];
-  AdipadugalFire:any=[];
-  AdipadugalOthers:any=[];
+  AdipadugalFire: any = [];
+  AdipadugalOthers: any = [];
+  Count: any;
+  TableData: any = [];
+  TableDataFireMan: any =[];
+  RescuedAnimal: any;
+  NoOfAnimal: any;
+  RescuedAnimalName: any;
+
   // FireOfficerAndTeam:any=[];
 
-  constructor(private FormBuilder: FormBuilder, public Service: CommonService, public route: Router, private ngxService: NgxUiLoaderService) { }
+  constructor(private FormBuilder: FormBuilder, public Service: CommonService, public route: Router, private ngxService: NgxUiLoaderService) {
+    this.GetFireManCount();
+    if(this.Service.ThanipaniRejectedEditData.length > 0)
+    {
+      this.GetRejectedFormData();
+    }
+  }
 
-  ngOnInit()
-  {
+  ngOnInit() {
     this.RescuedMembers = false;
     this.Adipaadugal = false;
     this.AllInOnePerson = true;
-    debugger
-    this.GetTableResults();
+   
+    
     // this.Kottam = 0;
+  }
+  GetRejectedFormData()
+  {
+    this.Kottam = this.Service.ThanipaniRejectedEditData.kottam;
+    this.Station = this.Service.ThanipaniRejectedEditData.station;
+    this.FireOfficerName = this.Service.ThanipaniRejectedEditData.fire_officer_name; 
+    this.ArikkaiNumber = this.Service.ThanipaniRejectedEditData.arikkai_number;
+    this.AccidentDate = this.Service.ThanipaniRejectedEditData.accident_date;
+    this.CallerName = this.Service.ThanipaniRejectedEditData.caller_name;
+    this.TelephoneNumber = this.Service.ThanipaniRejectedEditData.telephone_number;
+    this.AccidentAddress = this.Service.ThanipaniRejectedEditData.accident_address;
+    this.OwnerName = this.Service.ThanipaniRejectedEditData.owner_name;
+    this.Job = this.Service.ThanipaniRejectedEditData.occupation;
+    this.OwnerNameAddress = this.Service.ThanipaniRejectedEditData.owner_name_address;
+    this.CallingTime = this.Service.ThanipaniRejectedEditData.calling_time;      
+    this.VehicleStartTime = this.Service.ThanipaniRejectedEditData.vehicle_start_time;  
+    this.VehicleReachedTime = this.Service.ThanipaniRejectedEditData.vehicle_reached_time;
+    this.BetweenDistance = this.Service.ThanipaniRejectedEditData.between_distance;
+    this.IncidentTime = this.Service.ThanipaniRejectedEditData.incident_time;
+    this.DetailAbtFire = this.Service.ThanipaniRejectedEditData.detail_about_incident;
+    this.ReasonForFire = this.Service.ThanipaniRejectedEditData.reason_fortheincident;
+    this.RescueWork = this.Service.ThanipaniRejectedEditData.rescue_work;
+    this.LastReturnOfficer = this.Service.ThanipaniRejectedEditData.last_return_officer;
+    this.ReturnDateTimeFromFireAcc = this.Service.ThanipaniRejectedEditData.return_date_time_from_fire_acc;
+    this.FireControllingTime = this.Service.ThanipaniRejectedEditData.fire_controlling_time;
+    this.Type = this.Service.ThanipaniRejectedEditData.type;
+    this.RescuedMembers = this.Service.ThanipaniRejectedEditData.escaped_or_rescued_active;
+    this.Adipaadugal = this.Service.ThanipaniRejectedEditData.adipaadugal_active;
+    this.EscapedorRescued = this.Service.ThanipaniRejectedEditData.escaped_or_rescued;
+    this.WithoutHelp = this.Service.ThanipaniRejectedEditData.escaped_or_rescued[0].without_help;
+    this.WithoutTools =  this.Service.ThanipaniRejectedEditData.escaped_or_rescued[0].without_tools;
+    this.WithTools =  this.Service.ThanipaniRejectedEditData.escaped_or_rescued[0].with_tools;
+    this.AdipadugalFire =  this.Service.ThanipaniRejectedEditData.adipadugal_fire;
+    this.DeadFireMan = this.Service.ThanipaniRejectedEditData.adipadugal_fire[0].dead;
+    this.InjuredFireMan = this.Service.ThanipaniRejectedEditData.adipadugal_fire[0].injured;
+    this.DeadOthers =  this.Service.ThanipaniRejectedEditData.adipadugal_fire[0].dead;
+    this.InjuredOthers = this.Service.ThanipaniRejectedEditData.adipadugal_fire[0].injured;
+    this.Others= this.Service.ThanipaniRejectedEditData.Others;
+    this.Sign= this.Service.ThanipaniRejectedEditData.Sign;
+    this.AllInOnePerson= this.Service.ThanipaniRejectedEditData.AllInOnePerson;
+    this.FireTeam = this.Service.ThanipaniRejectedEditData.fire_officer_and_team;
+    this.ArriveACt = this.Service.PreviewData.arrive_and_act;
   }
   WithoutHelpAdd() {
     debugger
@@ -172,7 +226,6 @@ export class ThanipaniComponent implements OnInit {
   }
   Preview() {
     debugger
-
     this.EscapedorRescued = [];
     this.EscapedorRescued.push(
       {
@@ -180,49 +233,49 @@ export class ThanipaniComponent implements OnInit {
         'without_tools': this.WithoutTools,
         'with_tools': this.WithTools
       });
-this.AdipadugalFire.push(
-  {
-    'dead':this.DeadFireMan,
-    'injured':this.InjuredFireMan
-  })
+    this.AdipadugalFire.push(
+      {
+        'dead': this.DeadFireMan,
+        'injured': this.InjuredFireMan
+      })
 
-this.AdipadugalOthers.push(
-  {
-    'dead':this.DeadOthers,
-    'injured':this.InjuredOthers
-  })
-  
+    this.AdipadugalOthers.push(
+      {
+        'dead': this.DeadOthers,
+        'injured': this.InjuredOthers
+      })
+
     let data = {
-      'Kottam': this.Kottam,
-      'Station': this.Station,
-      'FireOfficerName': this.FireOfficerName,
-      'ArikkaiNumber': this.ArikkaiNumber,
-      'AccidentDate': this.AccidentDate,
-      'CallerName': this.CallerName,
-      'TelephoneNumber': this.TelephoneNumber,
-      'AccidentAddress': this.AccidentAddress,
-      'OwnerName': this.AllInOnePerson == true ? this.CallerName : this.OwnerName,
-      'Job': this.Job,
-      'OwnerNameAddress': this.AllInOnePerson == true ? this.CallerName : this.OwnerNameAddress,
-      'CallingTime': this.CallingTime,
-      'VehicleStartTime': this.VehicleStartTime,
-      'VehicleReachedTime': this.VehicleReachedTime,
-      'BetweenDistance': this.BetweenDistance + 'kms',
-      'IncidentTime': this.IncidentTime,
-      'DetailAbtFire': this.DetailAbtFire,
-      'ReasonForFire': this.ReasonForFire,
-      'RescueWork': this.RescueWork,
-      'LastReturnOfficer': this.LastReturnOfficer,
-      'ReturnDateTimeFromFireAcc': this.ReturnDateTimeFromFireAcc,
-      'FireControllingTime': this.FireControllingTime,
-      'Type': 'Thanipani',
-      'RescuedMembers': this.RescuedMembers,
-      'EscapedorRescued': this.EscapedorRescued,
-      'Adipaadugal': this.Adipaadugal,
-      'ArriveACt': this.ArriveACt,
-      'AdipadugalFire': this.AdipadugalFire,
-      'AdipadugalOthers': this.AdipadugalOthers,
-      'FireTeam':this.FireTeam,
+      'kottam': this.Kottam,
+      'station': this.Station,
+      'fire_officer_name': this.FireOfficerName,
+      'arikkai_number': this.ArikkaiNumber,
+      'accident_date': this.AccidentDate,
+      'caller_name': this.CallerName,
+      'telephone_number': this.TelephoneNumber,
+      'accident_address': this.AccidentAddress,
+      'owner_name': this.AllInOnePerson == true ? this.CallerName : this.OwnerName,
+      'occupation': this.Job,
+      'owner_name_address': this.AllInOnePerson == true ? this.CallerName : this.OwnerNameAddress,
+      'calling_time': this.CallingTime,
+      'vehicle_start_time': this.VehicleStartTime,
+      'vehicle_reached_time': this.VehicleReachedTime,
+      'between_distance': this.BetweenDistance + 'kms',
+      'incident_time': this.IncidentTime,
+      'detail_about_incident': this.DetailAbtFire,
+      'reason_fortheincident': this.ReasonForFire,
+      'rescue_work': this.RescueWork,
+      'last_return_officer': this.LastReturnOfficer,
+      'return_date_time_from_fire_acc': this.ReturnDateTimeFromFireAcc,
+      'fire_controlling_time': this.FireControllingTime,
+      'type': 'Thanipani',
+      'escaped_or_rescued_active': this.RescuedMembers,
+      'escaped_or_rescued': this.EscapedorRescued,
+      'adipaadugal_active': this.Adipaadugal,
+      'arrive_and_act': this.ArriveACt,
+      'adipadugal_fire': this.AdipadugalFire,
+      'adipadugal_others': this.AdipadugalOthers,
+      'fire_officer_and_team': this.FireTeam,
       'Others': this.Others,
       'Sign': this.Sign,
       'AllInOnePerson': this.AllInOnePerson
@@ -230,6 +283,39 @@ this.AdipadugalOthers.push(
     this.Service.PreviewData = data;
     this.route.navigate(['/Preview']);
   }
+  GetFireManCount() {
+    debugger
+    let data = '';
+    this.Service.GetMethod(this.Service.URL + '/fire_man/count', data).subscribe(
+      result => {
+        debugger
+        this.ngxService.stop();
+        this.Count = result.data.count;
+        this.TableDataFireMan = result.data.data;
+      }
+      , (error) => {
+        debugger
+
+        this.ngxService.stop(); // stop foreground spinner of the loader "loader-01" with 'default' taskId
+        let alert = error.error.message
+        this.Service.AlertWarning(alert);
+
+      }
+    );
+  }
+  GetRankAndName(id:any)
+  {
+    debugger
+    this.TableDataFireMan.forEach(element => {
+      if(element.id_number == id.target.value)
+      {
+        this.FireTeamAttr.rank = element.rank;
+        this.FireTeamAttr.name = element.first_name + ' ' + element.last_name;
+      }
+    });
+    
+  }
+
   Submit() {
     debugger
     this.ngxService.start();
@@ -240,57 +326,18 @@ this.AdipadugalOthers.push(
         'without_tools': this.WithoutTools,
         'with_tools': this.WithTools
       });
-      this.AdipadugalFire.push(
-        {
-          'dead':this.DeadFireMan,
-          'injured':this.InjuredFireMan
-        })
-      
-      this.AdipadugalOthers.push(
-        {
-          'dead':this.DeadOthers,
-          'injured':this.InjuredOthers
-        })
+    this.AdipadugalFire.push(
+      {
+        'dead': this.DeadFireMan,
+        'injured': this.InjuredFireMan
+      })
+
+    this.AdipadugalOthers.push(
+      {
+        'dead': this.DeadOthers,
+        'injured': this.InjuredOthers
+      })
     let data = {
-      // 'kottam': this.Kottam,
-      // 'station':this.Station,
-      // 'fire_officer_name': this.FireOfficerName,
-      // 'arikkai_number': this.ArikkaiNumber,
-      // 'accident_date': this.AccidentDate,
-      // 'caller_name':this.CallerName,
-      // 'telephone_number':this.TelephoneNumber,
-      // 'accident_address': this.AccidentAddress,
-      // 'owner_name': this.AllInOnePerson == true ? this.CallerName : this.OwnerName,
-      // 'job':this.Job,
-      // 'owner_name_address':  this.AllInOnePerson == true ? this.CallerName : this.OwnerNameAddress,
-      // 'calling_time':this.CallingTime,
-      // 'vehicle_start_time':this.VehicleStartTime,
-      // 'vehicle_reached_time':this.VehicleReachedTime,
-      // 'between_distance':this.BetweenDistance,
-      // 'incident_time':this.IncidentTime,
-      // 'detail_about_incident':this.DetailAbtFire,
-      // 'reason_fortheincident':this.ReasonForFire,
-      // 'rescue_work':this.RescueWork,
-      // 'last_return_officer':this.LastReturnOfficer,
-      // 'return_date_time_from_fire_acc':this.ReturnDateTimeFromFireAcc,
-      // 'fire_controlling_time':this.FireControllingTime,
-      // 'type':'Thanipani',
-      // 'rescued_members':this.RescuedMembers,
-      // 'adipaadugal':this.Adipaadugal,
-      // 'fire_station_name':this.FireStationName,
-      // 'model_name':this.ModelName,
-      // 'register_number':this.RegisterNumber,
-      // 'started_time':this.SStartedTime,
-      // 'reached_ime':this.SReachedTime,
-      // 'return_time':this.SReturnTime,
-      // 'reached_station_time':this.ReachedStationTime,
-      // 'travel_hours':this.TravelHours,
-      // 'water_pumbing_time':this.WaterPumbingTime,
-      // 'Rank':this.Rank,
-      // 'Number':this.Number,
-      // 'Name':this.Name,
-      // 'Others':this.Others,
-      // 'Sign':this.Sign
 
       'kottam': this.Kottam,
       'station': this.Station,
@@ -322,24 +369,16 @@ this.AdipadugalOthers.push(
       'adipaadugal_active': this.Adipaadugal == true ? '1' : '0',
       'adipadugal_fire': this.AdipadugalFire,
       'adipadugal_others': this.AdipadugalOthers,
-      'fire_officer_and_team':this.FireTeam,
+      'fire_officer_and_team': this.FireTeam,
       'Others': this.Others,
-      'Sign': this.Sign
-      // 'fire_station_name': this.FireStationName,
-      // 'model_name': this.ModelName,
-      // 'register_number': this.RegisterNumber,
-      // 'started_time': this.SStartedTime,
-      // 'reached_ime': this.SReachedTime,
-      // 'return_time': this.SReturnTime,
-      // 'reached_station_time': this.ReachedStationTime,
-      // 'travel_hours': this.TravelHours,
-      // 'water_pumbing_time': this.WaterPumbingTime,
-      // 'Rank': this.Rank,
-      // 'Number': this.Number,
-      // 'Name': this.Name,
-     
+      'Sign': this.Sign,
+      'rescued_animal_active': this.RescuedAnimal == true ? '1' : '0',
+      'type_of_animal':this.RescuedAnimalName,
+      'no_of_animal':this.NoOfAnimal,
+      'approval': 0,
+    
     }
-    this.Service.sendPostRequest(this.Service.URL + '/fire_call', data).subscribe(
+    this.Service.sendPostRequest(this.Service.URL + '/rescue_call', data).subscribe(
       result => {
         this.ngxService.stop();
         let alert = result.more_info
@@ -357,29 +396,29 @@ this.AdipadugalOthers.push(
     );
   }
 
-  GetTableResults() {
-    debugger
-    let data = '';
-    this.Service.GetMethod(this.Service.URL + '/fire_call/count', data).subscribe(
-      result => {
-        debugger
-        this.ngxService.stop();
-        // let alert = result.more_info
-        // this.Service.ToastSuccess(alert);
-        let data=[];
-        data = result.data.id;
-        
-        console.log(result);
-      }
-      , (error) => {
-        debugger
+  // GetTableResults() {
+  //   debugger
+  //   let data = '';
+  //   this.Service.GetMethod(this.Service.URL + '/fire_call/count', data).subscribe(
+  //     result => {
+  //       debugger
+  //       this.ngxService.stop();
+  //       // let alert = result.more_info
+  //       // this.Service.ToastSuccess(alert);
+  //       let data=[];
+  //       data = result.data.id;
 
-        this.ngxService.stop(); // stop foreground spinner of the loader "loader-01" with 'default' taskId
-        let alert = error.error.message
-        this.Service.AlertWarning(alert);
+  //       console.log(result);
+  //     }
+  //     , (error) => {
+  //       debugger
 
-      }
-    );
-  }
+  //       this.ngxService.stop(); // stop foreground spinner of the loader "loader-01" with 'default' taskId
+  //       let alert = error.error.message
+  //       this.Service.AlertWarning(alert);
+
+  //     }
+  //   );
+  // }
 
 }

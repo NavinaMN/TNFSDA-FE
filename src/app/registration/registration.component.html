@@ -21,14 +21,27 @@
 					<span class="login100-form-title">
 						Register Here
 					</span>
+					<div class="wrap-input100 validate-input" data-validate = "Valid Username is required: ex@abc.xyz">
+						<input class="input100" type="number" [(ngModel)]="id_number" name="Username" placeholder="User ID">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+						</span>
+					</div>
                     <div class="wrap-input100 validate-input" data-validate = "Valid Username is required: ex@abc.xyz">
-						<input class="input100" type="text" [(ngModel)]="username" name="Username" placeholder="Username">
+						<input class="input100" type="text" [(ngModel)]="first_name" name="Username" placeholder="First Name">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
-
+					<div class="wrap-input100 validate-input" data-validate = "Valid Username is required: ex@abc.xyz">
+						<input class="input100" type="text" [(ngModel)]="last_name" name="Username" placeholder="Last Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="email" [(ngModel)]="email" name="Email" placeholder="Email">
@@ -55,9 +68,11 @@
                     <div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<!-- <input class="input100" type="number" [(ngModel)]="rank" name="Pass" placeholder="Rank"> -->
 						<select class="input100" [(ngModel)]="rank" name="Pass" placeholder="Rank">
-							<option>Fire Man</option>
-							<option>SFO</option>
-							<option>DFO</option>
+							<option value="LF">LF</option>
+                            <option value="FM">FM</option>
+                            <option value="DD">DD</option>
+                            <option value="SFO">SFO</option>
+							<option value="DFO">DFO</option>
 						</select>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">

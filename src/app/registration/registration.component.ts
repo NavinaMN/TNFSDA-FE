@@ -20,7 +20,12 @@ export class RegistrationComponent implements OnInit {
   email:any;
   mobile:any;
   rank:any;
-  constructor(private FormBuilder:FormBuilder, public Service: CommonService, public route: Router,private ngxService: NgxUiLoaderService) {
+  first_name: any;
+  last_name: any;
+  id_number: any;
+
+
+ constructor(private FormBuilder:FormBuilder, public Service: CommonService, public route: Router,private ngxService: NgxUiLoaderService) {
     
    }
 
@@ -45,11 +50,13 @@ export class RegistrationComponent implements OnInit {
     this.ngxService.start();
     
     let data={
-        'username': this.username,
+        'id_number': this.id_number,
+        'first_name': this.first_name,
+        'last_name':this.last_name,
         'email':this.email,
         'password': this.password,
         'mobile': this.mobile,
-        'rank': this.rank
+        'rank': this.rank,
               }
       this.Service.sendPostRequest(this.Service.URL + '/register',data).subscribe(
             result => {
