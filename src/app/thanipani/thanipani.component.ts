@@ -103,6 +103,7 @@ export class ThanipaniComponent implements OnInit {
   }
   GetRejectedFormData()
   {
+    debugger
     this.Kottam = this.Service.ThanipaniRejectedEditData.kottam;
     this.Station = this.Service.ThanipaniRejectedEditData.station;
     this.FireOfficerName = this.Service.ThanipaniRejectedEditData.fire_officer_name; 
@@ -141,7 +142,11 @@ export class ThanipaniComponent implements OnInit {
     this.Sign= this.Service.ThanipaniRejectedEditData.Sign;
     this.AllInOnePerson= this.Service.ThanipaniRejectedEditData.AllInOnePerson;
     this.FireTeam = this.Service.ThanipaniRejectedEditData.fire_officer_and_team;
-    this.ArriveACt = this.Service.PreviewData.arrive_and_act;
+    this.ArriveACt = this.Service.ThanipaniRejectedEditData.arrive_and_act;
+    this.RescuedAnimalName = this.Service.ThanipaniRejectedEditData.type_of_animal;
+    this.RescuedAnimal = this.Service.ThanipaniRejectedEditData.rescued_animal_active;
+    this.NoOfAnimal = this.Service.ThanipaniRejectedEditData.no_of_animal;
+  
   }
   WithoutHelpAdd() {
     debugger
@@ -278,7 +283,11 @@ export class ThanipaniComponent implements OnInit {
       'fire_officer_and_team': this.FireTeam,
       'Others': this.Others,
       'Sign': this.Sign,
-      'AllInOnePerson': this.AllInOnePerson
+      'AllInOnePerson': this.AllInOnePerson,
+      'rescued_animal_active': this.RescuedAnimal,
+      'type_of_animal':this.RescuedAnimalName,
+      'no_of_animal':this.NoOfAnimal,
+      'approve_status': 0
     }
     this.Service.PreviewData = data;
     this.route.navigate(['/Preview']);

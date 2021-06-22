@@ -180,4 +180,8 @@ Kottam: any = 0;
       }
     );
   }
+  Logout()
+  {
+    this.route.navigate(['/login']);
+  }
 }

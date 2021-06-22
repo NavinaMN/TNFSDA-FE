@@ -101,5 +101,10 @@ RescueCount : any;
       }
     );
   }
+  
+  Logout()
+  {
+    this.route.navigate(['/login']);
+  }
 
 }

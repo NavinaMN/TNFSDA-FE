@@ -15,17 +15,17 @@
 <span style="display: flex; justify-content: flex-end;cursor: pointer;" (click)="captureScreen()">Download <i class="fa fa-download"></i></span>
 <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>பொதுவானது</u></strong></h5>
+        <h5><strong>பொதுவானது</strong></h5>
     </div>
 
-    <div class="col-md-12" style="border: 1px solid black;margin-left:30px;width:92%;">
+    <div class="col-md-12" style="border: 1px solid white;margin-left:30px;width:92%;">
         <div class="col-md-12">
             <div class="col-md-6" style="font-size:14px;padding:10px;">
                 <span style="font-weight:bold;"> கோட்டம் : </span>
                 <span style="color: blue">{{Kottam}}</span>
             </div>
             <div class="col-md-6" style="font-size:14px;padding:10px;">
-                <span style="font-weight:bold;"> தீ விபத்து அறிக்கை எண் # : </span>
+                <span style="font-weight:bold;"> தீ விபத்து அறிக்கை எண் : </span>
                 <span style="color: blue">{{ArikkaiNumber}}</span>
             </div>
         </div>
@@ -56,7 +56,7 @@
 
 <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>அழைப்பு</u></strong></h5>
+        <h5><strong>அழைப்பு</strong></h5>
     </div>
 
     <div class="col-md-12" style="border: 1px solid black;margin-left:30px;width:92%;">
@@ -131,7 +131,7 @@
 
 <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>தீ விபத்து பற்றிய விவரங்கள்:</u></strong></h5>
+        <h5><strong>தீ விபத்து பற்றிய விவரங்கள்:</strong></h5>
     </div>
 
     <div class="col-md-12" style="border: 1px solid black;margin-left:30px;width:92%;">
@@ -208,7 +208,7 @@
 
 <!-- <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>அடியிற்கண்டவைகளின் உத்தேச மதிப்பு:</u></strong></h5>
+        <h5><strong>அடியிற்கண்டவைகளின் உத்தேச மதிப்பு:</strong></h5>
     </div>
     <div class="col-md-12" style="border: 1px solid black;margin-left:30px;width:92%;">
 
@@ -268,7 +268,7 @@
 
 <section *ngIf="RescuedMembers==true">
     <div class="col-md-12 subheading">
-        <h5><strong><u>தப்பித்துக்கொண்டவர்கள் / காப்பாற்றப்பட்டவர்கள்:</u></strong></h5>
+        <h5><strong>தப்பித்துக்கொண்டவர்கள் / காப்பாற்றப்பட்டவர்கள்:</strong></h5>
     </div>
     
     <div class="col-md-12 subheading" *ngIf="WithoutHelp.length>0">
@@ -371,7 +371,7 @@
 </section> -->
 <section *ngIf="Adipaadugal==true">
     <div class="col-md-12 subheading">
-        <h5><strong><u>விபத்துக்குள்ளானவர்கள் விவரம்:</u></strong></h5>
+        <h5><strong>விபத்துக்குள்ளானவர்கள் விவரம்:</strong></h5>
     </div>
     <div class="col-md-12 subheading" *ngIf="DeadFire.length>0">
         <h5><strong>தீயணைப்பு பணியாளர் - இறந்தவர்கள்</strong></h5>
@@ -495,7 +495,7 @@
 
 <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>விபத்து நடந்த இடத்தில் வந்து செயலாற்றிய செயற்கருவிகளின் விவரங்கள்:</u></strong></h5>
+        <h5><strong>விபத்து நடந்த இடத்தில் வந்து செயலாற்றிய செயற்கருவிகளின் விவரங்கள்:</strong></h5>
     </div>
     <div class="col-md-12" style="border: 1px solid black;margin-left:30px;width:92%;">
         <div class="col-md-12" style="border-bottom: 1px solid gray;">
@@ -537,7 +537,7 @@
 
 <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>வந்து செயலாற்றிய தீயணைப்பு அலுவலர் மற்றும் தீயணைப்பு பணியினர்:</u></strong></h5>
+        <h5><strong>வந்து செயலாற்றிய தீயணைப்பு அலுவலர் மற்றும் தீயணைப்பு பணியினர்:</strong></h5>
         <!-- <h6>
             (விடுப்பு ஆட்களை சேர்க்க கூடாது)
         </h6> -->
@@ -557,7 +557,7 @@
         <tbody>
             <tr *ngFor="let item of FireTeam" style="color: blue">
                 <td>{{item.rank}}</td>
-                <td>{{item.number}}</td>
+                <td>{{item.id_number}}</td>
                 <td>{{item.name}}</td>
               
             </tr>
@@ -571,7 +571,7 @@
 
 <section>
     <div class="col-md-12 subheading">
-        <h5><strong><u>வேறு எவையேனும் குறிப்புகள்:</u></strong></h5>
+        <h5><strong>வேறு எவையேனும் குறிப்புகள்:</strong></h5>
 
     </div>
     <div class="col-md-12" style="border: 1px solid black;margin-left:30px;width:92%;">

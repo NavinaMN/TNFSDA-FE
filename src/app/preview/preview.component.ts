@@ -128,8 +128,15 @@ export class PreviewComponent implements OnInit {
       // const doc = new jspdf.jsPDF();
       let pdf = new jspdf.jsPDF('p', 'mm', 'a4'); 
       let position = 0;  
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
-      pdf.save('MYPdf.pdf'); // Generated PDF   
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight) 
+      if(this.Type == 'Thanipani') 
+      {
+      pdf.save('TNFRS_RESCUE_CALL_DATA'); // Generated PDF   
+      }
+      else
+      {
+        pdf.save('TNFRS_FIRE_CALL_DATA'); // Generated PDF 
+      }
       this.ngxService.stop();
     });  
   }
